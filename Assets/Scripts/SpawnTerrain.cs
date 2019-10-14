@@ -32,7 +32,7 @@ public class SpawnTerrain : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            Instantiate(terrainPrefab, new Vector3(0f, -0.5f, transform.position.z + 15), Quaternion.identity);
+            Instantiate(terrainPrefab, new Vector3(0f, -0.5f, transform.position.z + 30), Quaternion.identity);
 
 
             int random = Random.Range(0, 100);
@@ -40,12 +40,12 @@ public class SpawnTerrain : MonoBehaviour
             {
                 if (gameController.elapsedTime > 10)
                 {
-                    Instantiate(obstacle, new Vector3(0, 0.5f, transform.position.z + Random.Range(14, 19)), Quaternion.identity);
+                    Instantiate(obstacle, new Vector3(0, 0.5f, transform.position.z + Random.Range(25, 39)), Quaternion.identity);
 
                 }
                 else
                 {
-                    Instantiate(obstacle, new Vector3(Random.Range(-3, 3), 0.5f, transform.position.z + Random.Range(14, 19)), Quaternion.identity);
+                    Instantiate(obstacle, new Vector3(Random.Range(-3, 3), 0.5f, transform.position.z + Random.Range(25, 39)), Quaternion.identity);
                 }
             }
            /* else if (random <= 75)// If it does not spawn obstacle
@@ -64,7 +64,7 @@ public class SpawnTerrain : MonoBehaviour
             }*/
             else
             {
-                Instantiate(enemy, new Vector3(Random.Range(-3, 3), 1.1f, transform.position.z + Random.Range(14, 19)), Quaternion.identity);
+                Instantiate(enemy, new Vector3(Random.Range(-3, 3), 0f, transform.position.z + Random.Range(25, 39)), Quaternion.Euler(0, 180, 0));
             }
         }
     }

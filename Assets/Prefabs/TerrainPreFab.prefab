@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 5811395971907395517}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 1, z: 10}
+  m_LocalScale: {x: 10, y: 1, z: 20}
   m_Children: []
   m_Father: {fileID: 5811395972218693079}
   m_RootOrder: 0
@@ -119,7 +119,7 @@ Transform:
   m_GameObject: {fileID: 5811395971941648126}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -5, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 2, z: 10}
+  m_LocalScale: {x: 1, y: 2, z: 20}
   m_Children: []
   m_Father: {fileID: 5811395972218693079}
   m_RootOrder: 2
@@ -258,7 +258,7 @@ Transform:
   m_GameObject: {fileID: 5811395973228273893}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 5, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 2, z: 10}
+  m_LocalScale: {x: 1, y: 2, z: 20}
   m_Children: []
   m_Father: {fileID: 5811395972218693079}
   m_RootOrder: 1
@@ -347,7 +347,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9199623492745279561}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.75, z: -5}
+  m_LocalPosition: {x: 0, y: 0.75, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5811395972218693079}
@@ -379,9 +379,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainPrefab: {fileID: 5811395972218693076}
+  enemy: {fileID: 1391888216552696, guid: 0c74bed2ad49fad4d94fca86441ad49f, type: 3}
   obstacle: {fileID: 4477757668832381108, guid: 76167ac76873144778026576ede00430,
     type: 3}
   powerUps:
   - {fileID: 4590132737112858793, guid: f43ef8642674f49e3bf7cf8168eb887e, type: 3}
   - {fileID: 7631314852885649290, guid: 73f63fda60d974515a6859d66343cdf4, type: 3}
-  enemy: {fileID: 2370750475495010669, guid: e6842b4a7c9c348b1aa5038c32b96faa, type: 3}
