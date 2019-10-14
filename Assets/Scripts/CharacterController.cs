@@ -17,8 +17,18 @@ public class CharacterController : MonoBehaviour
     void Update()
     {
 
+#if UNITY_EDITOR
         //Move character based on mouse's horizontal position
-        transform.Translate(new Vector3((Input.mousePosition.x/Screen.width)*10 -5, 0f, Time.deltaTime * gameController.speed));
+        transform.Translate(new Vector3((Input.mousePosition.x / Screen.width)*10 - 5, 0f, Time.deltaTime * gameController.speed));
+#endif
+
+#if UNITY_ANDROID
+        transform.Translate(new Vector3(Input.acceleration.x, 0f, Time.deltaTime * gameController.speed));
+#endif
+
+#if UNITY_IOS
+        transform.Translate(new Vector3(Input.acceleration.x, 0f, Time.deltaTime * gameController.speed));
+#endif
 
         //clamp values from -4 to 4
         if (transform.position.x < -4)
