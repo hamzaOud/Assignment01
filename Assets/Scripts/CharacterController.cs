@@ -19,7 +19,8 @@ public class CharacterController : MonoBehaviour
 
 #if UNITY_EDITOR
         //Move character based on mouse's horizontal position
-        transform.Translate(new Vector3((Input.mousePosition.x / Screen.width)*10 - 5, 0f, Time.deltaTime * gameController.speed));
+        //transform.Translate(new Vector3((Input.mousePosition.x / Screen.width)*10 - 5, 0f, Time.deltaTime * gameController.speed));
+        transform.Translate(new Vector3(Input.GetAxis("Horizontal"), 0f, Time.deltaTime * gameController.speed));
 #endif
 
 #if UNITY_ANDROID
@@ -46,15 +47,6 @@ public class CharacterController : MonoBehaviour
         if (isGrounded() && Input.GetKeyDown(KeyCode.Space))
         {
             GetComponent<Rigidbody>().AddForce(Vector3.up * 6.5f, ForceMode.Impulse);
-        }
-
-        if(Input.GetKeyDown(KeyCode.A))
-        {
-            transform.Rotate(new Vector3(0,-90,0), Space.Self);
-        }
-        if(Input.GetKeyDown(KeyCode.D))
-        {
-            transform.Rotate(new Vector3(0, 90, 0), Space.Self);
         }
     }
 
