@@ -7,6 +7,8 @@ public class Obstacle : MonoBehaviour
     // Start is called before the first frame update
     public GameControllerScript gameController;
     public Player player;
+    public AudioSource audio;
+    public AudioClip sclip;
     
     void Start()
     {
@@ -28,11 +30,15 @@ public class Obstacle : MonoBehaviour
         }
         else if (other.gameObject.tag == "Player" && player.isInvincible == true)
         { //If player is invincible and runs in an obstacle, the obstacle gets destroyed
-            Destroy(this.gameObject);
+            audio.Play();
+            transform.position = Vector3.one * 9999f;
+            Destroy(this.gameObject, sclip.length);
         }
         else if (other.gameObject.tag == "Bullet") //If bullet hits obstacle, destroy both obstacle and bullet
         {
-            Destroy(this.gameObject);
+            audio.Play();
+            transform.position = Vector3.one * 9999f;
+            Destroy(this.gameObject, sclip.length);
             Destroy(other.gameObject);
         }
     }

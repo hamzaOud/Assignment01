@@ -15,5 +15,7 @@ public class MoveCam : MonoBehaviour
     void Update()
     {   
         GetComponent<Rigidbody>().velocity = new Vector3(0f, 0f, gameController.speed);
+
+        //GetComponent<AudioListener>().enabled = false;
     }
 }

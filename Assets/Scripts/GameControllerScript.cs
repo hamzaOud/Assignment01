@@ -34,6 +34,7 @@ public class GameControllerScript : MonoBehaviour
 
     private void OnGUI()
     {
+        GUI.contentColor = Color.red;
         GUI.Label(new Rect(50,50,200,100), "Score:" + player.points);
         GUI.Label(new Rect(Screen.width - 200, 50, 200, 100), "High Score:" + PlayerPrefs.GetInt("HighScore"));
 
@@ -41,6 +42,8 @@ public class GameControllerScript : MonoBehaviour
 
     public void Die()
     {
+        GetComponent<AudioSource>().Stop();
+        GetComponent<AudioSource>().Play();
         if (PlayerPrefs.GetInt("HighScore") < player.points)
         {
             PlayerPrefs.SetInt("HighScore", Mathf.RoundToInt(player.points));

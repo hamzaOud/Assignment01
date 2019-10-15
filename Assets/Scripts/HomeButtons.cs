@@ -10,6 +10,16 @@ public class HomeButtons : MonoBehaviour
     // Start is called before the first frame update
     public void play()
     {
-        SceneManager.LoadScene("SampleScene",LoadSceneMode.Single);
+        SceneManager.LoadScene(1,LoadSceneMode.Single);
+    }
+
+    public void settings()
+    {
+        SceneManager.LoadScene(2, LoadSceneMode.Single);
+    }
+
+    public void exitGame()
+    {
+        Application.Quit();
     }
 }

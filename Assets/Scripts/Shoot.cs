@@ -19,6 +19,8 @@ public class Shoot : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Instantiate(bullet, new Vector3(transform.position.x, 0.5f, transform.position.z + 1f), Quaternion.Euler(90,0,0));
+            GetComponent<AudioSource>().Stop();
+            GetComponent<AudioSource>().Play();
         }
     }
 }
