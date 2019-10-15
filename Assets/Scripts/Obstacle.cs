@@ -30,15 +30,29 @@ public class Obstacle : MonoBehaviour
         }
         else if (other.gameObject.tag == "Player" && player.isInvincible == true)
         { //If player is invincible and runs in an obstacle, the obstacle gets destroyed
-            audio.Play();
-            transform.position = Vector3.one * 9999f;
-            Destroy(this.gameObject, sclip.length);
+            if(PlayerPrefs.GetInt("Sound") == 1)
+            {
+                audio.Play();
+                transform.position = Vector3.one * 9999f;
+                Destroy(this.gameObject, sclip.length);
+            }
+            else
+            {
+                Destroy(this.gameObject);
+            }
         }
         else if (other.gameObject.tag == "Bullet") //If bullet hits obstacle, destroy both obstacle and bullet
         {
-            audio.Play();
-            transform.position = Vector3.one * 9999f;
-            Destroy(this.gameObject, sclip.length);
+            if (PlayerPrefs.GetInt("Sound") == 1)
+            {
+                audio.Play();
+                transform.position = Vector3.one * 9999f;
+                Destroy(this.gameObject, sclip.length);
+            }
+            else
+            {
+                Destroy(this.gameObject);
+            }
             Destroy(other.gameObject);
         }
     }

@@ -25,10 +25,17 @@ public class DoublePoints : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            player.DoublePoints();
-            audio.Play();
-            GetComponent<MeshRenderer>().enabled = false;
-            Destroy(this.gameObject, sclip.length);
+            if (PlayerPrefs.GetInt("Sound") == 1)
+            {
+                player.DoublePoints();
+                audio.Play();
+                GetComponent<MeshRenderer>().enabled = false;
+                Destroy(this.gameObject, sclip.length);
+            }
+            else
+            {
+                Destroy(this.gameObject);
+            }
         }
     }
 }

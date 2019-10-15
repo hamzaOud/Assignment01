@@ -16,9 +16,13 @@ public class Shoot : MonoBehaviour
     void Update()
     {
         //If player presses left button, fire bullet
-        if (Input.GetMouseButtonDown(0))
+    }
+
+    public void shoot()
+    {
+        Instantiate(bullet, new Vector3(transform.position.x, 0.5f, transform.position.z + 1f), Quaternion.Euler(90, 0, 0));
+        if (PlayerPrefs.GetInt("Sound") == 1)
         {
-            Instantiate(bullet, new Vector3(transform.position.x, 0.5f, transform.position.z + 1f), Quaternion.Euler(90,0,0));
             GetComponent<AudioSource>().Stop();
             GetComponent<AudioSource>().Play();
         }

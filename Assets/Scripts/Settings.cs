@@ -10,21 +10,20 @@ public class Settings : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-        if (PlayerPrefs.GetInt("Sound") == 1)
-        {
-            soundToggle.isOn = true;
-        }
-        else
-        {
-            soundToggle.isOn = false;
-        }
+    { 
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (soundToggle.isOn)
+        {
+            PlayerPrefs.SetInt("Sound", 1);
+        }
+        else if (!soundToggle.isOn)
+        {
+            PlayerPrefs.SetInt("Sound", 0);
+        }
     }
 
     public void resetHighScore()

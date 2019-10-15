@@ -14,7 +14,7 @@ public class GameControllerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -42,8 +42,11 @@ public class GameControllerScript : MonoBehaviour
 
     public void Die()
     {
-        GetComponent<AudioSource>().Stop();
-        GetComponent<AudioSource>().Play();
+        if (PlayerPrefs.GetInt("Sound") == 1)
+        {
+            GetComponent<AudioSource>().Stop();
+            GetComponent<AudioSource>().Play();
+        }
         if (PlayerPrefs.GetInt("HighScore") < player.points)
         {
             PlayerPrefs.SetInt("HighScore", Mathf.RoundToInt(player.points));
