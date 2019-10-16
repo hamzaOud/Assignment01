@@ -274,6 +274,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   gameController: {fileID: 576320111}
+  shooter: {fileID: 0}
 --- !u!54 &425094426
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -342,8 +343,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.8183668, z: 1}
-  m_Center: {x: 0, y: 0.9091834, z: 0}
+  m_Size: {x: 0.8913702, y: 1.8183668, z: 1}
+  m_Center: {x: 0.005541876, y: 0.9091834, z: 0}
 --- !u!82 &425094431
 AudioSource:
   m_ObjectHideFlags: 0

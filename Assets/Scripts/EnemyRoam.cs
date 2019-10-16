@@ -15,17 +15,26 @@ public class EnemyRoam : MonoBehaviour
     void Update()
     {
          Ray ray = new Ray(transform.position, Vector3.left);
-         //If the enemy gets close to the Left wall
-         if (Physics.Raycast(ray, 1))
+        //If the enemy gets close to the Left wall
+        RaycastHit hit;
+         if (Physics.Raycast(ray, out hit, 1))
          { // Change direction towards the right
-             GetComponent<Rigidbody>().velocity = Vector3.right * 3;
+            if (hit.collider.tag == "Terrain")
+            {
+                GetComponent<Rigidbody>().velocity = Vector3.right * 3;
+            }
          }
 
          Ray rayRight = new Ray(transform.position, Vector3.right);
-         //If the enemy gets close to the right wall
-         if (Physics.Raycast(rayRight, 1))
+        //If the enemy gets close to the right wall
+        RaycastHit hitRight;
+         if (Physics.Raycast(rayRight, out hitRight, 1 ))
          {// Change direction towards the left
-             GetComponent<Rigidbody>().velocity = Vector3.left * 3; 
+
+            if (hitRight.collider.tag == "Terrain")
+            {
+                GetComponent<Rigidbody>().velocity = Vector3.left * 3;
+            }
          }
 
 

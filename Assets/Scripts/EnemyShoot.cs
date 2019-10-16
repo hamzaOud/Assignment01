@@ -17,8 +17,8 @@ public class EnemyShoot : MonoBehaviour
     void Update()
     {
         RaycastHit hit;
-        Ray ray = new Ray(transform.position, Vector3.back * 20); // Ray originating from the enemy and heading backwards (-z)
-        if (Physics.Raycast(ray, out hit))
+        Ray ray = new Ray(transform.position, Vector3.back); // Ray originating from the enemy and heading backwards (-z)
+        if (Physics.Raycast(ray, out hit, 45))
         {
             if (hit.collider.gameObject.tag == "Player") //if the ray hits the player
             { //Shoot a fireball
