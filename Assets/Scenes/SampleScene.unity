@@ -204,6 +204,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 100062, guid: 8faaad6d8cbb42b41bd9449047c89255, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000,
+        type: 0}
     - target: {fileID: 400062, guid: 8faaad6d8cbb42b41bd9449047c89255, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -273,6 +278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
+  horizontalSpeed: 2
   gameController: {fileID: 576320111}
   shooter: {fileID: 0}
 --- !u!54 &425094426
@@ -305,6 +311,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isInvincible: 0
   isDoublingPoints: 0
+  doublePointTime: 5
+  invincibilityTime: 10
   points: 0
 --- !u!114 &425094428
 MonoBehaviour:
@@ -473,8 +481,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlaying: 0
   player: {fileID: 425094427}
-  speed: 4
+  initialSpeed: 4
+  speedIncrementRate: 2
   elapsedTime: 0
+  speed: 4
 --- !u!4 &576320112
 Transform:
   m_ObjectHideFlags: 0
@@ -842,7 +852,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1350320498}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 20, z: 70}
+  m_LocalPosition: {x: 0, y: 28.76, z: 70}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 963194228}
@@ -1012,6 +1022,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4872230399151423856, guid: dbf11bbd6262d482e958f4e1d8896ee7,
+        type: 3}
+      propertyPath: itemsToSpawn.Array.data[3].weight
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4872230399151423856, guid: dbf11bbd6262d482e958f4e1d8896ee7,
+        type: 3}
+      propertyPath: itemsToSpawn.Array.data[2].weight
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4872230399151423856, guid: dbf11bbd6262d482e958f4e1d8896ee7,
+        type: 3}
+      propertyPath: itemsToSpawn.Array.data[0].weight
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbf11bbd6262d482e958f4e1d8896ee7, type: 3}

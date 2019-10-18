@@ -386,7 +386,7 @@ MonoBehaviour:
     yOffset: 0
   - item: {fileID: 4477757668832381108, guid: 76167ac76873144778026576ede00430, type: 3}
     weight: 7
-    xRandomPosRange: 3
+    xRandomPosRange: 1.5
     zRandomPosRange: 2
     yOffset: 0
   - item: {fileID: 4590132737112858793, guid: f43ef8642674f49e3bf7cf8168eb887e, type: 3}

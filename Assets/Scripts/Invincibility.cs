@@ -34,6 +34,7 @@ public class Invincibility : MonoBehaviour
             }
             else
             {
+                player.Invincible();
                 Destroy(this.gameObject);
             }
         }

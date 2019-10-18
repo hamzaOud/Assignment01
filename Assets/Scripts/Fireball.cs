@@ -6,10 +6,12 @@ public class Fireball : MonoBehaviour
 {
 
     GameControllerScript gameController;
+    Player player;
     // Start is called before the first frame update
     void Start()
     {
         gameController = GameObject.Find("GameController").GetComponent<GameControllerScript>();
+        player = GameObject.Find("Cow Girl").GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -20,8 +22,12 @@ public class Fireball : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player") //If the fireball hits the player, Game over
+        if (other.gameObject.tag == "Player" && player.isInvincible) //If the player is invincible, destroy the fireball
         {
+            Destroy(this.gameObject);
+        }
+        else if (other.gameObject.tag == "Player")
+        {//If the fireball hits the player, Game over
             gameController.Die();
         }
     }

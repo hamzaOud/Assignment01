@@ -20,7 +20,7 @@ public class Shoot : MonoBehaviour
 
     public void shoot()
     {
-        Instantiate(bullet, new Vector3(transform.position.x, 0.5f, transform.position.z + 1f), Quaternion.Euler(90, 0, 0));
+        Instantiate(bullet, new Vector3(transform.position.x, transform.position.y + 0.4f, transform.position.z + 1f), Quaternion.Euler(90, 0, 0));
         if (PlayerPrefs.GetInt("Sound") == 1)
         {
             GetComponent<AudioSource>().Stop();

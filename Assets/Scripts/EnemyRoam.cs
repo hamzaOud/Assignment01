@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class EnemyRoam : MonoBehaviour
 {
+    Rigidbody rigidbody;
     // Start is called before the first frame update
     void Start()
     {
         //Add code to randomize initial direction
-        GetComponent<Rigidbody>().velocity = Vector3.left * 3; //Give initial movement direction
+        rigidbody = GetComponent<Rigidbody>();
+        rigidbody.velocity = Vector3.left * 3; //Give initial movement direction
     }
 
     // Update is called once per frame
@@ -21,7 +23,7 @@ public class EnemyRoam : MonoBehaviour
          { // Change direction towards the right
             if (hit.collider.tag == "Terrain")
             {
-                GetComponent<Rigidbody>().velocity = Vector3.right * 3;
+                rigidbody.velocity = Vector3.right * 3;
             }
          }
 
@@ -33,30 +35,9 @@ public class EnemyRoam : MonoBehaviour
 
             if (hitRight.collider.tag == "Terrain")
             {
-                GetComponent<Rigidbody>().velocity = Vector3.left * 3;
+                rigidbody.velocity = Vector3.left * 3;
             }
          }
-
-
-       /* Ray ray = new Ray(transform.position, Vector3.left);
-        RaycastHit hit;
-        if(Physics.Raycast(ray, out hit, 1))
-        {
-            if (hit.collider.gameObject.tag == "Terrain")
-            {
-                print("enemy hit left wall");
-                GetComponent<Rigidbody>().velocity = Vector3.right * 3;
-            }
-        }
-
-        Ray rayRight = new Ray(transform.position, Vector3.right);
-        if (Physics.Raycast(ray, out hit, 1))
-        {
-            if (hit.collider.gameObject.tag == "Terrain")
-            {
-                GetComponent<Rigidbody>().velocity = Vector3.left * 3;
-            }
-        }*/
     }
 
 }

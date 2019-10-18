@@ -34,6 +34,7 @@ public class DoublePoints : MonoBehaviour
             }
             else
             {
+                player.DoublePoints();
                 Destroy(this.gameObject);
             }
         }
