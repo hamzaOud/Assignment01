@@ -2,30 +2,53 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class SpawnItemInfo
+{
+    public GameObject item;
+    public float weight;
+    public float xRandomPosRange;
+    public float zRandomPosRange;
+    public float yOffset;
+
+    public Vector3 GetRandomOffset()
+    {
+        return new Vector3(Random.Range(-xRandomPosRange, xRandomPosRange), yOffset, Random.Range(-zRandomPosRange, zRandomPosRange));
+    }
+
+}
+
 public class SpawnTerrain : MonoBehaviour
 {
+    public SpawnItemInfo[] itemsToSpawn;
+
     public GameObject terrainPrefab;
-    public GameObject enemy; 
-    public GameObject obstacle;
-    public GameObject[] powerUps;
 
     private GameControllerScript gameController;
+
+    private float totalItemWeight;
 
 
     // Start is called before the first frame update
     void Start()
     {
         gameController = GameObject.Find("GameController").GetComponent<GameControllerScript>();
-        obstacle.transform.localScale = new Vector3(5, 1, 1);
+        //obstacle.transform.localScale = new Vector3(5, 1, 1);
+
+        totalItemWeight = 0;
+        foreach (SpawnItemInfo info in itemsToSpawn)
+        {
+            totalItemWeight += info.weight;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (gameController.elapsedTime > 10)
+        /*if (gameController.elapsedTime > 10)
         {
             obstacle.transform.localScale = new Vector3(9, 2, 1);
-        }
+        }*/
     }
 
     private void OnTriggerEnter(Collider other)
@@ -34,37 +57,17 @@ public class SpawnTerrain : MonoBehaviour
         {
             Instantiate(terrainPrefab, new Vector3(0f, -0.5f, transform.position.z + 30), Quaternion.identity);
 
-
-            int random = Random.Range(0, 100);
-            if (random <= 50) //AI to decide if it will spawn obstacle
+            float random = Random.Range(0, totalItemWeight);
+            for (int i = 0; i < itemsToSpawn.Length; i++)
             {
-                if (gameController.elapsedTime > 10)
-                {
-                    Instantiate(obstacle, new Vector3(0, 0.5f, transform.position.z + Random.Range(25, 39)), Quaternion.identity);
+                random = random - itemsToSpawn[i].weight;
 
-                }
-                else
+                if (random <= 0)
                 {
-                    Instantiate(obstacle, new Vector3(Random.Range(-3, 3), 0.5f, transform.position.z + Random.Range(25, 39)), Quaternion.identity);
+                    Vector3 itemPosition = transform.position + Vector3.forward * 30 + itemsToSpawn[i].GetRandomOffset();
+                    Instantiate(itemsToSpawn[i].item, itemPosition, Quaternion.identity);
+                    break;
                 }
-            }
-           /* else if (random <= 75)// If it does not spawn obstacle
-            {
-                float selectedPowerUps = Random.value;
-
-                if (selectedPowerUps < 0.5) { //AI to decide which power-up to spawn
-                    Instantiate(powerUps[0], new Vector3(Random.Range(-3, 3), 0.5f, transform.position.z + Random.Range(14, 19)), 
-                    Quaternion.identity);
-                }
-                else
-                {
-                    Instantiate(powerUps[1], new Vector3(Random.Range(-3, 3), 0.5f, transform.position.z + Random.Range(14, 19)),
-                    Quaternion.identity);
-                }
-            }*/
-            else
-            {
-                Instantiate(enemy, new Vector3(Random.Range(-3, 3), 0f, transform.position.z + Random.Range(25, 39)), Quaternion.Euler(0, 180, 0));
             }
         }
     }

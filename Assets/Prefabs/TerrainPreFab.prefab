@@ -378,10 +378,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5289fb432cfe4555939173707bd76b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemsToSpawn:
+  - item: {fileID: 1391888216552696, guid: 0c74bed2ad49fad4d94fca86441ad49f, type: 3}
+    weight: 3
+    xRandomPosRange: 3
+    zRandomPosRange: 5
+    yOffset: 0
+  - item: {fileID: 4477757668832381108, guid: 76167ac76873144778026576ede00430, type: 3}
+    weight: 7
+    xRandomPosRange: 3
+    zRandomPosRange: 2
+    yOffset: 0
+  - item: {fileID: 4590132737112858793, guid: f43ef8642674f49e3bf7cf8168eb887e, type: 3}
+    weight: 10
+    xRandomPosRange: 2
+    zRandomPosRange: 1
+    yOffset: 0.5
+  - item: {fileID: 7631314852885649290, guid: 73f63fda60d974515a6859d66343cdf4, type: 3}
+    weight: 10
+    xRandomPosRange: 4
+    zRandomPosRange: 2
+    yOffset: 0.5
   terrainPrefab: {fileID: 5811395972218693076}
-  enemy: {fileID: 1391888216552696, guid: 0c74bed2ad49fad4d94fca86441ad49f, type: 3}
-  obstacle: {fileID: 4477757668832381108, guid: 76167ac76873144778026576ede00430,
-    type: 3}
-  powerUps:
-  - {fileID: 4590132737112858793, guid: f43ef8642674f49e3bf7cf8168eb887e, type: 3}
-  - {fileID: 7631314852885649290, guid: 73f63fda60d974515a6859d66343cdf4, type: 3}
