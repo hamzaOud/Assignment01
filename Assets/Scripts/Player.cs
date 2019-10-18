@@ -6,6 +6,8 @@ public class Player : MonoBehaviour
 {
     public bool isInvincible = false;
     public bool isDoublingPoints = false;
+    public float doublePointTime = 5;
+    public float invincibilityTime = 10;
     private float invincibilityTimer = 0.0f;
     private float doublePointsTimer = 0.0f;
     public float points = 0;
@@ -18,29 +20,32 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isDoublingPoints && doublePointsTimer < 5)
+        if (isDoublingPoints)
         {
             points += Time.deltaTime * 100;
-            doublePointsTimer += Time.deltaTime;
-        }
-        else if (isDoublingPoints && doublePointsTimer >= 5)
-        {
-            doublePointsTimer = 0.0f;
-            isDoublingPoints = false;
+            UpdateTimer(doublePointTime, ref doublePointsTimer, ref isDoublingPoints);
         }
         else
         {
             points += Time.deltaTime;
         }
 
-        if (isInvincible && invincibilityTimer < 10)
+        if (isInvincible)
         {
-            invincibilityTimer += Time.deltaTime;
+            UpdateTimer(invincibilityTime, ref invincibilityTimer, ref isInvincible);
         }
-        else if (isInvincible && invincibilityTimer >= 10)
+    }
+
+    private void UpdateTimer(float maxTime, ref float timer, ref bool status)
+    {
+        if (timer < maxTime)
         {
-            invincibilityTimer = 0.0f;
-            isInvincible = false;
+            timer += Time.deltaTime;
+        }
+        else
+        {
+            timer = 0.0f;
+            status = false;
         }
     }
 
