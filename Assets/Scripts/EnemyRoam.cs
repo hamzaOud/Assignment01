@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyRoam : MonoBehaviour
 {
-    Rigidbody rigidbody;
+    new Rigidbody rigidbody;
     // Start is called before the first frame update
     void Start()
     {

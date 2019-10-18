@@ -7,7 +7,7 @@ public class Obstacle : MonoBehaviour
     // Start is called before the first frame update
     public GameControllerScript gameController;
     public Player player;
-    public AudioSource audio;
+    new public AudioSource audio;
     public AudioClip sclip;
     
     void Start()

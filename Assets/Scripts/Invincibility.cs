@@ -5,7 +5,7 @@ using UnityEngine;
 public class Invincibility : MonoBehaviour
 {
     public Player player;
-    public AudioSource audio;
+    new public AudioSource audio;
     public AudioClip sclip;
 
 

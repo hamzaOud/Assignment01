@@ -26,8 +26,6 @@ public class EnemyShoot : MonoBehaviour
                 {
                     _ball = Instantiate(fireball, new Vector3(transform.position.x, transform.position.y + 1, transform.position.z - 1f), Quaternion.identity);
                 }
-
-                //Instantiate(fireball, new Vector3(transform.position.x, transform.position.y, transform.position.z + 1f), Quaternion.identity);
             }
         }
 

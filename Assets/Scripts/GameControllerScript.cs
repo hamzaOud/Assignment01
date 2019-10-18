@@ -17,17 +17,6 @@ public class GameControllerScript : MonoBehaviour
     void Update()
     {
         elapsedTime += Time.deltaTime;
-
-        /*
-        if (elapsedTime >= 10.0f && elapsedTime < 20.0f)
-        {
-            speed = 6.0f;
-        }
-        else if (elapsedTime >= 20.0f)
-        {
-            speed = 8.0f;
-        }*/
-
         updateSpeed();
     }
 
