@@ -5,17 +5,19 @@ using UnityEngine;
 public class MoveCam : MonoBehaviour
 {
     public GameControllerScript gameController;
+    private Rigidbody body;
+
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<Rigidbody>().velocity = new Vector3(0f, 0f, gameController.speed);
+        body = GetComponent<Rigidbody>();
+        body.velocity = new Vector3(0f, 0f, gameController.speed);
+
     }
 
     // Update is called once per frame
     void Update()
-    {   
-        GetComponent<Rigidbody>().velocity = new Vector3(0f, 0f, gameController.speed);
-
-        //GetComponent<AudioListener>().enabled = false;
+    {
+        body.velocity = new Vector3(0f, 0f, gameController.speed);
     }
 }
