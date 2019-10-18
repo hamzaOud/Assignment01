@@ -8,20 +8,17 @@ public class GameControllerScript : MonoBehaviour
 
     public bool isPlaying;
     public Player player;
-    public float speed = 4.0f;
+    public float initialSpeed = 4.0f;
+    public float speedIncrementRate = 2.0f;
     public float elapsedTime = 0.0f;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
+    public float speed;
 
     // Update is called once per frame
     void Update()
     {
         elapsedTime += Time.deltaTime;
 
+        /*
         if (elapsedTime >= 10.0f && elapsedTime < 20.0f)
         {
             speed = 6.0f;
@@ -29,7 +26,14 @@ public class GameControllerScript : MonoBehaviour
         else if (elapsedTime >= 20.0f)
         {
             speed = 8.0f;
-        }
+        }*/
+
+        updateSpeed();
+    }
+
+    void updateSpeed ()
+    {
+        speed = initialSpeed + speedIncrementRate * Mathf.Log(elapsedTime);
     }
 
     private void OnGUI()
