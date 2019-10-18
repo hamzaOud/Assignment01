@@ -5,6 +5,7 @@ using UnityEngine;
 public class CharacterController : MonoBehaviour
 {
     public float speed = 4.0f;
+    public float horizontalSpeed = 2.0f;
     public GameControllerScript gameController;
     public Shoot shooter;
 
@@ -25,7 +26,7 @@ public class CharacterController : MonoBehaviour
 #if UNITY_EDITOR
         //Move character based on mouse's horizontal position
         //transform.Translate(new Vector3((Input.mousePosition.x / Screen.width)*10 - 5, 0f, Time.deltaTime * gameController.speed));
-        transform.Translate(new Vector3(Input.GetAxis("Horizontal"), 0f, Time.deltaTime * gameController.speed));
+        transform.Translate(new Vector3(Input.GetAxis("Horizontal") * Time.deltaTime * horizontalSpeed, 0f, Time.deltaTime * gameController.speed));
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -39,8 +40,8 @@ public class CharacterController : MonoBehaviour
         }
 #endif
 
-#if UNITY_ANDROID
-        transform.Translate(new Vector3(Input.acceleration.x, 0f, Time.deltaTime * gameController.speed));
+#if UNITY_ANDROID || UNITY_IOS
+        transform.Translate(new Vector3(Input.acceleration.x * Time.deltaTime * horizontalSpeed, 0f, Time.deltaTime * gameController.speed));
 
         if (Input.touchCount > 0)
         {
@@ -74,10 +75,6 @@ public class CharacterController : MonoBehaviour
 
             }
         }
-#endif
-
-#if UNITY_IOS
-        transform.Translate(new Vector3(Input.acceleration.x, 0f, Time.deltaTime * gameController.speed));
 #endif
 
         //clamp values from -4 to 4
