@@ -6,18 +6,24 @@ public class Enemy : MonoBehaviour
 {
     GameControllerScript gameController;
     Player player;
+    private int healthPoint;
 
     // Start is called before the first frame update
     void Start()
     {
         gameController = GameObject.Find("GameController").GetComponent<GameControllerScript>();
         player = GameObject.Find("Cow Girl").GetComponent<Player>();
+        healthPoint = 3;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (gameController.elapsedTime > 30)
+        {
+            transform.localScale = new Vector3(4,4,4);
+            healthPoint = 5;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -33,7 +39,11 @@ public class Enemy : MonoBehaviour
 
         if (other.gameObject.tag == "Bullet")
         {
-            Destroy(this.gameObject);
+            healthPoint--;
+            if (healthPoint <= 0)
+            {
+                Destroy(this.gameObject);
+            }
             Destroy(other.gameObject);
         }
     }

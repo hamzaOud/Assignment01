@@ -6,18 +6,23 @@ public class DoublePoints : MonoBehaviour
 {
 
     public Player player;
-    public AudioSource audio;
+    new public AudioSource audio;
     public AudioClip sclip;
+    GameControllerScript gameController;
 
     void Start()
     {
+        gameController = GameObject.Find("GameController").GetComponent<GameControllerScript>();
         player = GameObject.Find("Cow Girl").GetComponent<Player>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (gameController.elapsedTime > 10)
+        {
+            transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+        }
     }
 
 

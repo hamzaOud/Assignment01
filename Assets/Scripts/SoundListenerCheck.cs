@@ -4,22 +4,23 @@ using UnityEngine;
 
 public class SoundListenerCheck : MonoBehaviour
 {
+    public AudioListener listener;
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
+        AudioListener listener = GetComponent<AudioListener>();
+            }
 
     // Update is called once per frame
     void Update()
     {
         if (PlayerPrefs.GetInt("Sound") == 0)
         {
-            GetComponent<AudioListener>().enabled = false;
+            listener.enabled = false;
         }
         else
         {
-            GetComponent<AudioListener>().enabled = true;
+            listener.enabled = true;
         }
     }
 }

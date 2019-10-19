@@ -10,6 +10,7 @@ public class SpawnItemInfo
     public float xRandomPosRange;
     public float zRandomPosRange;
     public float yOffset;
+    public Vector3 rotationOffset;
 
     public Vector3 GetRandomOffset()
     {
@@ -42,15 +43,6 @@ public class SpawnTerrain : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        /*if (gameController.elapsedTime > 10)
-        {
-            obstacle.transform.localScale = new Vector3(9, 2, 1);
-        }*/
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
@@ -65,7 +57,7 @@ public class SpawnTerrain : MonoBehaviour
                 if (random <= 0)
                 {
                     Vector3 itemPosition = transform.position + Vector3.forward * 30 + itemsToSpawn[i].GetRandomOffset();
-                    Instantiate(itemsToSpawn[i].item, itemPosition, Quaternion.identity);
+                    Instantiate(itemsToSpawn[i].item, itemPosition, Quaternion.Euler(itemsToSpawn[i].rotationOffset));
                     break;
                 }
             }
