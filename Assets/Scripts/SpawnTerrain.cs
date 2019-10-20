@@ -47,6 +47,7 @@ public class SpawnTerrain : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            //Create a new terrain and place it at the end of the current one
             Instantiate(terrainPrefab, new Vector3(0f, -0.5f, transform.position.z + 30), Quaternion.identity);
 
             float random = Random.Range(0, totalItemWeight);

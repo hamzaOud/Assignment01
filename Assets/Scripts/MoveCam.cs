@@ -13,6 +13,12 @@ public class MoveCam : MonoBehaviour
         body = GetComponent<Rigidbody>();
         body.velocity = new Vector3(0f, 0f, gameController.speed);
 
+#if UNITY_ANDROID || UNITY_IOS
+
+        transform.Translate(new Vector3(0, 0, -10));
+
+#endif
+
     }
 
     // Update is called once per frame

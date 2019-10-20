@@ -7,12 +7,6 @@ public class EnemyShoot : MonoBehaviour
     public GameObject fireball;
     private GameObject _ball;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {

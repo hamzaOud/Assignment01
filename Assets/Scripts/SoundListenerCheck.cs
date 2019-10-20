@@ -8,8 +8,8 @@ public class SoundListenerCheck : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AudioListener listener = GetComponent<AudioListener>();
-            }
+        listener = GetComponent<AudioListener>();
+    }
 
     // Update is called once per frame
     void Update()

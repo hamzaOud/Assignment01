@@ -24,7 +24,7 @@ public class CharacterController : MonoBehaviour
     {
         Move();
 
-#if UNITY_EDITOR
+#if UNITY_EDITOR || UNITY_STANDALONE_OSX
         //Move character based on mouse's horizontal position
         //transform.Translate(new Vector3((Input.mousePosition.x / Screen.width)*10 - 5, 0f, Time.deltaTime * gameController.speed));
 
@@ -81,10 +81,10 @@ public class CharacterController : MonoBehaviour
     private void Move()
     {
         Vector3 movement = new Vector3(0, 0, Time.deltaTime * gameController.speed);
-#if UNITY_EDITOR
+#if UNITY_EDITOR || UNITY_STANDALONE_OSX
         movement.x = Input.GetAxis("Horizontal") * Time.deltaTime * horizontalSpeed;
 #elif UNITY_IOS || UNITY_ANDROID
-        movement.x = Input.acceleration.x * Time.deltaTime * horizontalSpeed;
+        movement.x = Input.acceleration.x;
 #endif
 
         transform.Translate(movement);

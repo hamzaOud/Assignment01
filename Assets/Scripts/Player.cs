@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
     {
         if (isDoublingPoints)
         {
-            points += Time.deltaTime * 100;
+            points += Time.deltaTime * 2;
             UpdateTimer(doublePointTime, ref doublePointsTimer, ref isDoublingPoints);
         }
         else
